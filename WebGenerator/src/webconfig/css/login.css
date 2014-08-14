@@ -1,0 +1,6 @@
+html,body { background: #f8f8f8; }
+.login-box { position: absolute; left: 25%; top: 50%; height: 218px; margin-left: -150px; margin-top: -109px;}
+.register-box { position: absolute; left: 28%; top: 50%; height: 218px; margin-left: -150px; margin-top: -109px;}
+.logo-box {  }
+.form-group label.error { background: none; text-indent: -9999px; width: 0; padding-left: 0; margin-left: 0; }
+/*.form-group .input-item { width: 70px; }*/

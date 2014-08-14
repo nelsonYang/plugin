@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.framework.generator
+OpenIDE-Module-Localizing-Bundle: com/framework/generator/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+Class-Path: ext/Framework-Log-1.0-SNAPSHOT.jar ext/RouteProvider-1.0-SNAPSHOT.jar ext/SaleEntity-1.0-SNAPSHOT.jar ext/Framework-Entity-1.0-SNAPSHOT.jar ext/EhCacheProvider-1.0-SNAPSHOT.jar ext/DataSourceRouteProvider-1.0-SNAPSHOT.jar ext/CacheProvider-1.0-SNAPSHOT.jar
+

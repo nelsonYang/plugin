@@ -1,0 +1,40 @@
+package ${package};
+
+import com.framework.annotation.Field;
+import com.framework.annotation.ServiceConfig;
+import com.framework.enumeration.CryptEnum;
+import com.framework.enumeration.FieldTypeEnum;
+import com.framework.enumeration.ParameterWrapperTypeEnum;
+import com.framework.enumeration.ResponseTypeEnum;
+import com.framework.enumeration.UploadEnum;
+import com.framework.enumeration.LoginEnum;
+import com.framework.enumeration.TerminalTypeEnum;
+import com.framework.log.LoggerFactory;
+import com.framework.service.api.Service;
+import com.ydh.weile.configuration.WeiLeActionName;
+import org.apache.log4j.Logger;
+
+@ServiceConfig(
+        act = WeiLeActionName.${act},
+        importantParameters = ${importantParameters},
+        minorParameters = ${minorParameters},
+        requestEncrypt = ${requestEncrypt},
+        requireLogin = ${requireLogin},
+        parametersWrapperType = ${parametersWrapperType},
+        returnParameters =${returnParameters},
+        responseEncrypt = ${responseEncrypt},
+        responseType = ${responseType},
+        description = "${decription}",
+        terminalType = ${terminalType},
+        validateParameters = ${validateParameters},
+        upload = ${upload}
+    )
+public class ${className} implements Service {
+
+    private final Logger logger = LoggerFactory.getInstance().getLogger(${className}.class);
+
+    @Override
+    public void execute() {
+     
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="com.framework.webgenerator">
+    <module_version install_time="1408026141713" last="true" origin="installer" specification_version="1.0">
+        <file crc="2451192134" name="config/Modules/com-framework-webgenerator.xml"/>
+        <file crc="61766455" name="modules/com-framework-webgenerator.jar"/>
+        <file crc="4241103913" name="modules/ext/CacheProvider-1.0-SNAPSHOT.jar"/>
+        <file crc="1539360369" name="modules/ext/Framework-Context-1.0-SNAPSHOT.jar"/>
+        <file crc="3991438476" name="modules/ext/Framework-Entity-1.0-SNAPSHOT.jar"/>
+        <file crc="3862707592" name="modules/ext/Framework-Log-1.0-SNAPSHOT.jar"/>
+        <file crc="1767120053" name="modules/ext/Framework-Service-1.0-SNAPSHOT.jar"/>
+        <file crc="1607949800" name="modules/ext/RouteProvider-1.0-SNAPSHOT.jar"/>
+    </module_version>
+</module>

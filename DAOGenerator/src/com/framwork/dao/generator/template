@@ -1,0 +1,43 @@
+package ${package};
+
+import com.framework.entity.pojo.Entity;
+import com.framework.entity.annotation.EntityConfig;
+import com.framework.entity.annotation.FieldConfig;
+import com.framework.enumeration.FieldTypeEnum;
+import com.framework.entity.pojo.PrimaryKey;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ *
+ * @author nelson
+ */
+@EntityConfig(
+    entityName = EntityNames.${tableName}, 
+    keyFields = ${keyFields},
+    useCache = ${useCache},
+    timeToIdleSeconds=${timeToIdleSeconds},
+    timeToLiveSeconds=${timeToLiveSeconds}
+)
+public class ${className} extends Entity {
+  
+ 
+    public PrimaryKey getKeyValue() {
+       ${KeyField}
+    }
+
+    ${FieldInfo}
+
+
+ 
+    public Map<String, String> toMap() {
+        ${toMap}
+    }
+    
+   
+    public void parseMap(Map<String, String> entityMap) {
+        ${parseMap}
+    }
+}

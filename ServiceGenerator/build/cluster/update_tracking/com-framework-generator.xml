@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="com.framework.generator">
+    <module_version install_time="1396076447867" last="true" origin="installer" specification_version="1.0">
+        <file crc="3236558549" name="config/Modules/com-framework-generator.xml"/>
+        <file crc="2933148206" name="modules/com-framework-generator.jar"/>
+        <file crc="1652091427" name="modules/ext/Anotations-1.0-SNAPSHOT.jar"/>
+        <file crc="4241103913" name="modules/ext/CacheProvider-1.0-SNAPSHOT.jar"/>
+        <file crc="369385250" name="modules/ext/DataSourceRouteProvider-1.0-SNAPSHOT.jar"/>
+        <file crc="1712824647" name="modules/ext/EhCacheProvider-1.0-SNAPSHOT.jar"/>
+        <file crc="3991438476" name="modules/ext/Framework-Entity-1.0-SNAPSHOT.jar"/>
+        <file crc="3862707592" name="modules/ext/Framework-Log-1.0-SNAPSHOT.jar"/>
+        <file crc="1607949800" name="modules/ext/RouteProvider-1.0-SNAPSHOT.jar"/>
+        <file crc="2800258594" name="modules/ext/SaleEntity-1.0-SNAPSHOT.jar"/>
+    </module_version>
+</module>

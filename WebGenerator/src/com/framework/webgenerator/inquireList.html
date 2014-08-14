@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <title>#{entiyNameDesc}</title>
+        <link rel="stylesheet" href="../css/new-basic.css">
+    </head>
+    <div class="button-box ml10 mb10 pt20">
+        <a href="add#{entityName}.html" class="blue-btn normal-btn">添加#{entiyNameDesc}</a> 
+    </div>
+    <!-- 表格 -->
+    <div class="table-box">
+        <table>
+            <thead>
+                #{head}
+            </thead>
+            <tbody id="table-list">
+            </tbody>
+        </table>
+    </div>
+    <!-- 模板 -->
+    <script id="listTemplate" type="text/html">
+       #{template}
+    </script>
+    <script type="text/javascript" src="../js/common/template.js"></script>
+    <script src="../js/sea.js" id="seajsnode"></script>
+    <script src="../js/seajs-config.js"></script>
+    <script>
+        seajs.use(['jquery', 'request', 'template', 'pager', 'tip'], function($, REQUEST, template, pager, TIP) {
+         
+            var $subBtn = $("#sub-btn");
+            var $tableList = $("#table-list");
+            //分页查询
+            inquireList('#{inquireListAction}',REQUEST,template,$tableList,TIP);
+          //删除action, primaryKey,$tableList,$, REQUEST,TIP
+           deleteAct('#{deleteAction}','#{primaryKey}',$tableList,$,REQUEST,TIP);
+        });
+    </script>
+</body>
+</html>

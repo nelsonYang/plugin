@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <title></title>
+        <link rel="stylesheet" href="../css/new-basic.css">
+    </head>
+    <div class="form-box">
+        <form method="post" id="entityForm">
+            #{fields}
+            <div class="button-box ml125 pt20">
+                <input type="submit" class="green-btn sub-btn" id="sub-btn" value="确认提交">
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="../js/common/template.js"></script>
+   <script src="../js/sea.js" id="seajsnode"></script>
+    <script src="../js/seajs-config.js"></script>
+    <script type="text/javascript">
+        seajs.use(['jquery', 'request', 'validation', 'tip', 'jump', 'search', 'formFill'], function($, REQUEST, validate, TIP, JUMP, SEARCH, FILL) {
+                    var $subBtn = $("#sub-btn");
+                    var $entityForm = $("#entityForm");
+                    var param = SEARCH.get();
+                    var id = param.#{primaryKey};
+                    var updateAction = '#{updateAction}';
+                    var queryAction = '#{queryAction}';
+                    var primaryKey = '#{primaryKey}';
+                    var toUrl = '#{toUrl}';
+                    var rules = #{rules}
+                    var messages = #{messages}
+                    updateAct(updateAction, queryAction, primaryKey, id, $entityForm, $subBtn, toUrl, rules, messages, REQUEST, FILL, TIP, JUMP);
+        });
+    </script>
+</body>
+</html>

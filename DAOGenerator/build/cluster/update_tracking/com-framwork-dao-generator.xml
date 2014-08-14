@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="com.framwork.dao.generator">
+    <module_version install_time="1407672775600" last="true" origin="installer" specification_version="1.0">
+        <file crc="1509499585" name="config/Modules/com-framwork-dao-generator.xml"/>
+        <file crc="3393367894" name="modules/com-framwork-dao-generator.jar"/>
+        <file crc="3540292263" name="modules/ext/NetbeansConnection.jar"/>
+        <file crc="2697912865" name="modules/ext/mysql-connector-java-5.1.13.jar"/>
+    </module_version>
+</module>
