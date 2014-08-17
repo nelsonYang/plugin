@@ -24,17 +24,17 @@ define(function(require, exports, module) {
                 //将dom jquery对象赋值给插件，方便后续调用
                 var $element = that.$element = $(element);
                 $element.on('render', function(e, oParam) {
-                    var currentIndex = typeof oParam['currentIndex'] === "undefined" ? that.settings.currentIndex : oParam['currentIndex'];
+                    var pageNo = typeof oParam['pageNo'] === "undefined" ? that.settings.pageNo : oParam['pageNo'];
                     var totalPage = typeof oParam["totalPage"] === "undefined" ? that.settings.totalPage : oParam["totalPage"];
-                    that.settings.currentIndex = currentIndex;
+                    that.settings.pageNo = pageNo;
                     that.settings.totalPage = totalPage;
-                    fnPageRender($element, currentIndex, totalPage);
+                    fnPageRender($element, pageNo, totalPage);
                 }).on('click', '.table-page-prev:not(.table-page-disabled)', function() {
-                    that.request({data: {currentIndex: parseInt($element.find('.current-page').text()) - 1}});
+                    that.request({data: {pageNo: parseInt($element.find('.current-page').text()) - 1}});
                 }).on('click', '.table-page-next:not(.table-page-disabled)', function() {
-                    that.request({data: {currentIndex: parseInt($element.find('.current-page').text()) + 1}});
+                    that.request({data: {pageNo: parseInt($element.find('.current-page').text()) + 1}});
                 }).on('click', 'a:not(.table-page-prev, .table-page-next)', function() {
-                    that.request({data: {currentIndex: parseInt($(this).text())}});
+                    that.request({data: {pageNo: parseInt($(this).text())}});
                 });
                 that.request();
             }
@@ -51,7 +51,7 @@ define(function(require, exports, module) {
                 var _callback = function(o) {
                     callback(o);
                     if (o.resultCode == 0) {
-                        that.$element.trigger('render', {currentIndex: param.data.currentIndex || 1, totalPage: o.data.totalPage});
+                        that.$element.trigger('render', {pageNo: param.data.pageNo || 1, totalPage: o.data.totalPage});
                     }
                 };
                 if (form) {
@@ -74,7 +74,7 @@ define(function(require, exports, module) {
         /**
          * 插件的私有方法
          */
-        function fnPageRender($elem, currentIndex, totalPage) {
+        function fnPageRender($elem, pageNo, totalPage) {
             if (totalPage <= 1) {
                 $elem.html('');
                 return;
@@ -86,48 +86,48 @@ define(function(require, exports, module) {
             var main_length = pager_length - header_length - tailer_length;
             var htmlArr = [];
             var prevPageClass = '';
-            if (currentIndex <= 1) {
+            if (pageNo <= 1) {
                 prevPageClass = 'table-page-disabled';
             }
             htmlArr.push('<ul class="table-page">');
             htmlArr.push('<li><a class="table-page-prev ' + prevPageClass + '" href="javascript:;">上一页</a></li>');
             if (totalPage <= pager_length) {
                 for (var i = 1, j = totalPage + 1; i < j; i++) {
-                    htmlArr.push(fnFillPageATag(i, currentIndex));
+                    htmlArr.push(fnFillPageATag(i, pageNo));
                 }
             } else {
-                if (currentIndex <= offset + 1) {
+                if (pageNo <= offset + 1) {
                     for (var i = 1, j = header_length + main_length + 1; i < j; i++) {
-                        htmlArr.push(fnFillPageATag(i, currentIndex));
+                        htmlArr.push(fnFillPageATag(i, pageNo));
                     }
                     htmlArr.push(fnFillPageEllipsis());
                     for (var i = totalPage - tailer_length + 2, j = totalPage + 1; i < j; i++) {
-                        htmlArr.push(fnFillPageATag(totalPage, currentIndex));
+                        htmlArr.push(fnFillPageATag(totalPage, pageNo));
                     }
-                } else if (currentIndex >= totalPage - offset - 1) {
+                } else if (pageNo >= totalPage - offset - 1) {
                     for (var i = 1; i < header_length; i++) {
-                        htmlArr.push(fnFillPageATag(i, currentIndex));
+                        htmlArr.push(fnFillPageATag(i, pageNo));
                     }
                     htmlArr.push(fnFillPageEllipsis());
                     for (var i = totalPage - main_length - tailer_length + 1, j = totalPage + 1; i < j; i++) {
-                        htmlArr.push(fnFillPageATag(i, currentIndex));
+                        htmlArr.push(fnFillPageATag(i, pageNo));
                     }
                 } else {
                     for (var i = 1, j = header_length; i < j; i++) {
-                        htmlArr.push(fnFillPageATag(i, currentIndex));
+                        htmlArr.push(fnFillPageATag(i, pageNo));
                     }
                     htmlArr.push(fnFillPageEllipsis());
-                    for (var i = currentIndex - parseInt((main_length - 1) / 2), j = i + main_length; i < j; i++) {
-                        htmlArr.push(fnFillPageATag(i, currentIndex));
+                    for (var i = pageNo - parseInt((main_length - 1) / 2), j = i + main_length; i < j; i++) {
+                        htmlArr.push(fnFillPageATag(i, pageNo));
                     }
                     htmlArr.push(fnFillPageEllipsis());
                     for (var i = totalPage - tailer_length + 2, j = totalPage + 1; i < j; i++) {
-                        htmlArr.push(fnFillPageATag(i, currentIndex));
+                        htmlArr.push(fnFillPageATag(i, pageNo));
                     }
                 }
             }
             var nextPageClass = '';
-            if (currentIndex >= totalPage) {
+            if (pageNo >= totalPage) {
                 nextPageClass = 'table-page-disabled';
             }
             htmlArr.push('<li><a class="table-page-next ' + nextPageClass + '" href="javascript:;">下一页</a></li>');
@@ -138,8 +138,8 @@ define(function(require, exports, module) {
             liClassName = liClassName || '';
             return '<li class="' + liClassName + '">' + liHtml + '</li>';
         }
-        function fnFillPageATag(index, currentIndex) {
-            var aClassName = (index == currentIndex ? 'current-page' : '');
+        function fnFillPageATag(index, pageNo) {
+            var aClassName = (index == pageNo ? 'current-page' : '');
             return fnFillPageTag('<a class="' + aClassName + '" href="javascript:;">' + index + '</a>');
         }
         function fnFillPageEllipsis() {
@@ -181,7 +181,7 @@ define(function(require, exports, module) {
          * 插件的默认值
          */
         $.fn.pager.defaults = {
-            currentIndex: 1,
+            pageNo: 1,
             totalPage: 1,
             form: null,
             param: {},
